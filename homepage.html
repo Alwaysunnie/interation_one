@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage </title>
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+        :root {
+            --red: #ff3838;
+        }
+
+        * {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: all .2s linear;
+        }
+
+        *::selection {
+            background: var(--red);
+            color: #fff;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            scroll-padding-top: 6rem;
+        }
+
+        body {
+            background: #fff;
+        }
+
+        section {
+            padding: 2rem 9%;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 3.5rem;
+            padding: 1rem;
+            color: #666;
+        }
+
+        .heading span {
+            color: var(--red);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: .8rem 3rem;
+            border: .2rem solid var(--red);
+            color: var(--red);
+            cursor: pointer;
+            font-size: 1.7rem;
+            border-radius: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 0;
+            margin-top: 1rem;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--red);
+            transition: .3s linear;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            width: 100%;
+            left: 0;
+        }
+
+        .btn:hover {
+            color: #fff;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgb(42, 41, 116);
+            padding: 20px 9%;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        }
+
+        header .logo {
+            font-size: 26px;
+            font-weight: bolder;
+            color: #fff;
+        }
+
+        header .logo i {
+            padding-right: 5px;
+            color: var(--white);
+        }
+
+        header .navbar a {
+            display: inline-block;
+            font-size: 20px;
+            margin-left: 20px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        header .navbar a:hover {
+            background-color: rgb(203, 211, 218);
+            color: black;
+        }
+
+
+
+
+        #menu-bar {
+            font-size: 3rem;
+            cursor: pointer;
+            color: #666;
+            border: .1rem solid #666;
+            border-radius: .3rem;
+            padding: .5rem 1.5rem;
+            display: none;
+        }
+
+        .home {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            min-height: 100vh;
+            align-items: center;
+            background: url(../images/home-bg.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .home .content {
+            flex: 1 1 40rem;
+            padding-top: 6.5rem;
+        }
+
+        .home .image {
+            flex: 1 1 40rem;
+        }
+
+        .home .image img {
+            width: 100%;
+            padding: 1rem;
+            animation: float 3s linear infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0rem);
+            }
+
+            50% {
+                transform: translateY(3rem);
+            }
+        }
+
+        .home .content h3 {
+            font-size: 5rem;
+            color: #333;
+        }
+
+        .home .content p {
+            font-size: 1.7rem;
+            color: #666;
+            padding: 1rem 0;
+        }
+
+        .smarthome .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .smarthome .box-container .box {
+            flex: 1 1 30rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+            border: .1rem solid rgba(0, 0, 0, .3);
+            cursor: pointer;
+            border-radius: .5rem;
+        }
+
+        .smarthome .box-container .box .image {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: -100%;
+            left: 0;
+        }
+
+        .smarthome .box-container .box .content {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+        }
+
+        .smarthome .box-container .box .content img {
+            margin: 15px 0;
+        }
+
+        .smarthome .box-container .box .content h3 {
+            font-size: 25px;
+            color: #333;
+        }
+
+        .smarthome .box-container .box .content p {
+            font-size: 16px;
+            color: #666;
+            padding: 1rem 0;
+        }
+
+        .smarthome .box-container .box:hover .image {
+            top: 0;
+            bottom: 0;
+        }
+
+        .smarthome .box-container .box:hover .content {
+            transform: translateY(100%);
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 28vw;
+            transition: opacity .6s ease;
+        }
+
+        .swiper-container.swiper-container-coverflow {
+            padding-top: 2%;
+        }
+
+        .swiper-container.loading {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .swiper-container:hover .swiper-button-prev,
+        .swiper-container:hover .swiper-button-next {
+            transform: translateX(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+        }
+
+        .swiper-slide .entity-img {
+            display: none;
+        }
+
+        .swiper-slide .content {
+            position: absolute;
+            top: 40%;
+            left: 0;
+            width: 50%;
+            padding-left: 5%;
+            color: #fff;
+        }
+
+        .swiper-slide .content .title {
+            font-size: 2.6em;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .swiper-slide .content .caption {
+            display: block;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        [class^="swiper-button-"] {
+            width: 44px;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .swiper-button-prev {
+            transform: translateX(50px);
+        }
+
+        .swiper-button-next {
+            transform: translateX(-50px);
+        }
+
+        .product .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .product .box-container .box {
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+            border: .1rem solid rgba(0, 0, 0, .3);
+            border-radius: .5rem;
+            text-align: center;
+            flex: 1 1 30rem;
+            position: relative;
+        }
+
+        .product .box-container .box img {
+            height: 25rem;
+            object-fit: cover;
+            width: 100%;
+            border-radius: .5rem;
+        }
+
+        .product .box-container .box .price {
+            position: absolute;
+            top: 3rem;
+            left: 3rem;
+            background: var(--red);
+            color: #fff;
+            font-size: 2rem;
+            padding: .5rem 1rem;
+            border-radius: .5rem;
+        }
+
+        .product .box-container .box h3 {
+            color: #333;
+            font-size: 2.5rem;
+            padding-top: 1rem;
+        }
+
+        .product .box-container .box .stars i {
+            color: gold;
+            font-size: 1.7rem;
+            padding: 1rem .1rem;
+        }
+
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+
+        .steps .box {
+            flex: 1 1 25rem;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .steps .box img {
+            border-radius: 50%;
+            border: 1rem solid #fff;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        }
+
+        .steps .box h3 {
+            font-size: 3rem;
+            color: #333;
+            padding: 1rem;
+        }
+
+        .cooperation .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .cooperation .box-container .box {
+            height: 25rem;
+            flex: 1 1 30rem;
+            border: 1rem solid #fff;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+            border-radius: .5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cooperation .box-container .box img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .cooperation .box-container .box .content {
+            position: absolute;
+            top: -100%;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(255, 255, 255, .9);
+            padding: 2rem;
+            padding-top: 5rem;
+            text-align: center;
+        }
+
+        .cooperation .box-container .box .content h3 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .cooperation .box-container .box .content p {
+            font-size: 1.5rem;
+            color: #666;
+            padding: 1rem 0;
+        }
+
+        .cooperation .box-container .box:hover .content {
+            top: 0;
+        }
+
+        .order .row {
+            padding: 2rem;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+            background: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            border-radius: .5rem;
+        }
+
+        .order .row .image {
+            flex: 1 1 30rem;
+        }
+
+        .order .row .image img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: .5rem;
+        }
+
+        .order .row form {
+            flex: 1 1 50rem;
+            padding: 1rem;
+        }
+
+        .order .row form .inputBox {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .order .row form .inputBox input,
+        .order .row form .inputBox select,
+        .order .row form textarea {
+            padding: 1rem;
+            margin: 1rem 0;
+            font-size: 1.7rem;
+            color: #333;
+            text-transform: none;
+            border: .1rem solid rgba(0, 0, 0, .3);
+            border-radius: .5rem;
+            width: 49%;
+        }
+
+        .order .row form textarea {
+            width: 100%;
+            resize: none;
+            height: 15rem;
+        }
+
+        .order .row form option {
+            width: 100%;
+            resize: none;
+            height: 15rem;
+        }
+
+        .order .row form .btn {
+            background: none;
+        }
+
+        .order .row form .btn:hover {
+            background: var(--red);
+        }
+
+        .business .row {
+            padding: 2rem;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+            background: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            border-radius: .5rem;
+        }
+
+        .business .row .image {
+            flex: 1 1 30rem;
+        }
+
+        .business .row .image img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: .5rem;
+        }
+
+        .business .row form {
+            flex: 1 1 50rem;
+            padding: 1rem;
+        }
+
+        .business .row form .inputBox {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .business .row form .inputBox input,
+        .business .row form .inputBox select,
+        .business .row form textarea {
+            padding: 1rem;
+            margin: 1rem 0;
+            font-size: 1.7rem;
+            color: #333;
+            text-transform: none;
+            border: .1rem solid rgba(0, 0, 0, .3);
+            border-radius: .5rem;
+            width: 49%;
+        }
+
+        .business .row form textarea {
+            width: 100%;
+            resize: none;
+            height: 15rem;
+        }
+
+        .business .row form option {
+            width: 100%;
+            resize: none;
+            height: 15rem;
+        }
+
+        .business .row form .btn {
+            background: none;
+        }
+
+        .business .row form .btn:hover {
+            background: var(--red);
+        }
+
+        #scroll-top {
+            position: fixed;
+            top: -120%;
+            right: 2rem;
+            padding: .5rem 1.5rem;
+            font-size: 4rem;
+            background: var(--red);
+            color: #fff;
+            border-radius: .5rem;
+            transition: 1s linear;
+            z-index: 1000;
+        }
+
+        #scroll-top.active {
+            top: calc(100% - 12rem)
+        }
+
+        .about .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .about .box-container .box {
+            text-align: center;
+            padding: 2rem;
+            border: 1rem solid #fff;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .3);
+            border-radius: .5rem;
+            flex: 1 1 30rem;
+            background: #333;
+            margin-top: 6rem;
+        }
+
+        .about .box-container .box img {
+            height: 12rem;
+            width: 12rem;
+            border-radius: 50%;
+            border: 1rem solid #fff;
+            margin-top: -8rem;
+            object-fit: cover;
+        }
+
+        .about .box-container .box h3 {
+            font-size: 2.5rem;
+            color: #fff;
+            padding: .5rem 0;
+        }
+
+        .about .box-container .box .stars i {
+            font-size: 2rem;
+            color: var(--red);
+            padding: .5rem 0;
+        }
+
+        .about .box-container .box p {
+            font-size: 1.5rem;
+            color: #eee;
+            padding: 1rem 0;
+        }
+
+        .rate_container {
+            min-height: 50vh;
+
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rate_btn {
+            color: #fff;
+            background: #ff6933;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .3);
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .rate_btn:hover {
+            background: #ff4400;
+        }
+
+        .rate_btn:active {
+            transform: scale(.90);
+        }
+
+        .white_content1 {
+            display: none;
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 390px;
+            height: 200px;
+            padding: 20px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .3);
+            background-color: #fff;
+            z-index: 1002;
+            overflow: auto;
+        }
+
+        #button {
+            font-size: 25px;
+            height: 60px;
+            width: 250px;
+        }
+
+        .popup-container {
+            position: fixed;
+            top: -120%;
+            left: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, .3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+        }
+
+        .popup-container.toggle {
+            top: 0%;
+        }
+
+        .popup-container .popup {
+            background: #fff;
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .5);
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .popup-container .popup h3 {
+            color: #444;
+            padding: 20px 40px;
+            font-size: 25px;
+        }
+
+        .popup-container .popup .rate_btn {
+            margin: 30px;
+            font-size: 20px;
+            height: 40px;
+            width: 150px;
+        }
+
+        .popup-container .popup input[type="radio"] {
+            display: none;
+        }
+
+        .popup-container .popup .icons {
+            padding: 10px;
+        }
+
+        .popup-container .popup .icons label {
+            font-size: 50px;
+            cursor: pointer;
+            opacity: .4;
+        }
+
+        .popup-container .popup .icons:hover label {
+            opacity: .2;
+        }
+
+
+        .popup-container .popup #btn1:checked~.icons label:nth-child(1),
+        .popup-container .popup #btn2:checked~.icons label:nth-child(2),
+        .popup-container .popup #btn3:checked~.icons label:nth-child(3),
+        .popup-container .popup #btn4:checked~.icons label:nth-child(4),
+        .popup-container .popup #btn5:checked~.icons label:nth-child(5),
+        .popup-container .popup .icons label:hover {
+            opacity: 1;
+            font-size: 60px;
+        }
+
+        .popup-container .popup #close {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            border-radius: 50%;
+            border: 4px solid #ff6933;
+            height: 40px;
+            width: 40px;
+            line-height: 35px;
+            cursor: pointer;
+            background: #333;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .popup-container .popup #close:hover {
+            transform: rotate(90deg);
+        }
+
+        .-footer {
+            text-align: center;
+        }
+
+        .-footer .share {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .-footer .credit {
+            padding: 2.5rem 1rem;
+            color: #333;
+            font-weight: normal;
+            font-size: 2rem;
+        }
+
+        .-footer .credit span {
+            color: var(--red);
+        }
+
+        .footer {
+            height: 200px;
+            background-color: rgb(255, 255, 255);
+            margin-top: 10px;
+        }
+
+        .footer .w {
+            padding-top: 35px;
+            padding-left: 35px;
+            padding-right: 35px;
+        }
+
+        .copyright {
+            float: left;
+        }
+
+        .copyright p {
+            font-size: 14px;
+            color: rgb(10, 10, 10);
+            margin-top: 10px;
+        }
+
+        .copyright .app {
+            margin-top: 10px;
+            display: block;
+            width: 118px;
+            height: 33px;
+            border: blue;
+            text-align: center;
+            line-height: 33px;
+            font-weight: 700;
+            color: blue;
+        }
+
+        .links {
+            float: right;
+        }
+
+        .links dl {
+            float: left;
+            margin-left: 100px;
+        }
+
+        .links dl dt {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .links dl dd a {
+            font-size: 12px;
+            color: rgb(5, 5, 5);
+
+        }
+
+        .links dl dd a:hover {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- header section starts  -->
+    <header>
+        <a href="#" class="logo"><i class="fas fa-home"></i>SMARTHOME</a>
+        <div id="menu-bar" class="fas fa-bars"></div>
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#smarthome">smarthome</a>
+            <a href="#product">product</a>
+            <a href="#cooperation">cooperation</a>
+            <a href="#about">about</a>
+            <a href="#rate">rate</a>
+        </nav>
+    </header>
+    <!-- header section ends -->
+
+    <!-- home section starts  -->
+    <section class="home" id="home">
+        <div class="content">
+            <h3 class="title1">smart home service system</h3>
+            <p>Technology changes lives.The company's intelligent home system has comprehensive functions,
+                including home status detection, remote control and security prevention and control system.
+                We are committed to providing you with the most comfortable and safe living environment.
+                If you want to know more, please click login button.</p>
+            <a href="origin.html" class="btn">LOGIN</a>
+        </div>
+        <div class="image">
+            <img src="images/home.jpg" alt="">
+        </div>
+    </section>
+    <!-- home section ends -->
+
+
+
+    <!-- speciality section starts  -->
+    <section class="smarthome" id="smarthome">
+        <h1 class="heading"> <span>smart home</span> for you </h1>
+        <div class="box-container">
+            <div class="box">
+                <img class="image" src="images/s1.jpg" alt="">
+                <div class="content">
+
+                    <img src="images/s-1.png" style="height: 40px;" alt="">
+                    <h3>lighting</h3>
+                    <p>Intelligent lighting is a distributed lighting control system composed of Internet of things and
+                        other technologies to realize intelligent control of lighting equipment.</p>
+                </div>
+            </div>
+            <div class="box">
+                <img class="image" src="images/s2.jpg" alt="">
+                <div class="content">
+                    <img src="images/s-2.png" style="height: 40px;" alt="">
+                    <h3>environmental</h3>
+                    <p>Detect indoor and outdoor temperature and humidity, intelligent weather prediction and put
+                        forward the best air-conditioning setting scheme accordingly.</p>
+                </div>
+            </div>
+            <div class="box">
+                <img class="image" src="images/s3.jpg" alt="">
+                <div class="content">
+                    <img src="images/s-3.png" style="height: 40px;" alt="">
+                    <h3>appliance</h3>
+                    <p>You can use this system to realize the remote control of household appliances, such as turning on
+                        TV, controlling the temperature of air conditioning and so on.</p>
+                </div>
+            </div>
+            <div class="box">
+                <img class="image" src="images/s4.jpg" alt="">
+                <div class="content">
+                    <img src="images/s-4.png" style="height: 40px;" alt="">
+                    <h3>doors & windows</h3>
+                    <p>With wind and rain remote sensor automatic switch, linkage alarm clock, film and television
+                        effects. When the switch is abnormal, an alarm will be issued.</p>
+                </div>
+            </div>
+            <div class="box">
+                <img class="image" src="images/s5.jpg" alt="">
+                <div class="content">
+                    <img src="images/s-5.png" style="height: 40px;" alt="">
+                    <h3>security</h3>
+                    <p>The security system includes infrared detectors, smoke detectors, smart HD cameras and so on.
+                        Together with smart doors and windows to protect your safety.</p>
+                </div>
+            </div>
+            <div class="box">
+                <img class="image" src="images/control.gif" alt="">
+                <div class="content">
+                    <img src="images/s-6.jpg" style="height: 40px;" alt="">
+                    <h3>customization</h3>
+                    <p>Personalized customization provides a full set of memory modes, you can customize the viewing
+                        mode and so on, according to your own preferences for later use.</p>
+                </div>
+            </div>
+
+            <section class="swiper-container">
+                <h1 class="heading">Multisensory <span>control</span></h1>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="background-image:url(origin/1.gif)">
+                        <img src="origin/1.gif" class="entity-img" />
+                        <div class="content">
+                            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Manual</p>
+
+                            <span class="caption" data-swiper-parallax="-20%">Sensors control the system by sensing hand
+                                movements.</span>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" style="background-image:url(origin/2.jpg)">
+
+                        <img src="origin/2.jpg" class="entity-img" />
+
+                        <div class="content">
+                            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Facial</p>
+                            <span class="caption" data-swiper-parallax="-20%">Face recognition is carried out on the
+                                detected faces.</span>
+                        </div>
+                    </div>
+
+
+                    <div class="swiper-slide" style="background-image:url(origin/3.jpg)">
+                        <img src="origin/3.jpg" class="entity-img" />
+                        <div class="content">
+                            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">APP</p>
+                            <span class="caption" data-swiper-parallax="-20%">Remote control using exclusive APP
+                                console.</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image:url(origin/4.jpg)">
+                        <img src="origin/4.jpg" class="entity-img" />
+                        <div class="content">
+                            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Touch</p>
+                            <span class="caption" data-swiper-parallax="-20%">Controlled by touching the graphic button
+                                on the screen.</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image:url(origin/5.jpg)">
+                        <img src="origin/5.jpg" class="entity-img" />
+                        <div class="content">
+                            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Voice</p>
+                            <span class="caption" data-swiper-parallax="-20%">Receive audio signals and react
+                                accordingly.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev swiper-button-white"></div>
+                <div class="swiper-button-next swiper-button-white"></div>
+            </section>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
+            <script>
+
+                // Params
+                var sliderSelector = '.swiper-container',
+                    options = {
+                        init: false,
+                        loop: true,
+                        speed: 800,
+                        slidesPerView: 2, // or 'auto'
+                        // spaceBetween: 10,
+                        centeredSlides: true,
+                        effect: 'coverflow', // 'cube', 'fade', 'coverflow',
+                        coverflowEffect: {
+                            rotate: 50, // Slide rotate in degrees
+                            stretch: 0, // Stretch space between slides (in px)
+                            depth: 100, // Depth offset in px (slides translate in Z axis)
+                            modifier: 1, // Effect multipler
+                            slideShadows: true, // Enables slides shadows
+                        },
+                        grabCursor: true,
+                        parallax: true,
+                        pagination: {
+                            el: '.swiper-pagination',
+                            clickable: true,
+                        },
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                        breakpoints: {
+                            1023: {
+                                slidesPerView: 1,
+                                spaceBetween: 0
+                            }
+                        },
+                        // Events
+                        on: {
+                            imagesReady: function () {
+                                this.el.classList.remove('loading');
+                            }
+                        }
+                    };
+                var mySwiper = new Swiper(sliderSelector, options);
+                // Initialize slider
+                mySwiper.init();
+
+
+            </script>
+        </div>
+    </section>
+    <!-- speciality section ends -->
+
+    <!-- popular section starts  -->
+    <section class="product" id="product">
+        <h1 class="heading"> our <span>product</span> list </h1>
+        <div class="box-container">
+            <div class="box">
+                <span class="price"> $8 - $25 </span>
+                <img src="images/p-1.jpg" alt="">
+                <h3>light</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <a href="#" class="btn">buy now</a>
+            </div>
+            <div class="box">
+                <span class="price"> $125 - $800 </span>
+                <img src="images/p-2.jpg" alt="">
+                <h3>television</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <a href="#" class="btn">buy now</a>
+            </div>
+            <div class="box">
+                <span class="price"> $350 - $750 </span>
+                <img src="images/p-3.jpg" alt="">
+                <h3>air-conditioner</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <a href="#" class="btn">buy now</a>
+            </div>
+            <div class="box">
+                <span class="price"> $45 - $620 </span>
+                <img src="images/p-4.jpg" alt="">
+                <h3>refrigerator</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <a href="#" class="btn">buy now</a>
+            </div>
+            <div class="box">
+                <span class="price"> $10 - $50 </span>
+                <img src="images/p-5.jpg" alt="">
+                <h3>curtain</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <a href="#" class="btn">buy now</a>
+            </div>
+            <div class="box">
+                <span class="price"> $20 - $200 </span>
+                <img src="images/p-6.jpg" alt="">
+                <h3>camera</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <a href="#" class="btn">buy now</a>
+            </div>
+        </div>
+    </section>
+    <!-- popular section ends -->
+
+    <!-- order section starts  -->
+    <section class="order" id="order">
+        <h1 class="heading"> <span>order</span> now </h1>
+        <div class="row">
+
+            <div class="image">
+                <img src="images/order-img.jpg" alt="">
+            </div>
+            <form action="">
+                <div class="inputBox">
+                    <input type="text" placeholder="fname">
+                    <input type="email" placeholder="lname">
+                </div>
+                <div class="inputBox">
+                    <select>
+                        <option style="color: #333;">--product--</option>
+                        <option>light</option>
+                        <option>TV</option>
+                        <option>curtain</option>
+                        <option>air-conditioner</option>
+                        <option>refrigerator</option>
+                        <option>camera</option>
+                    </select>
+                    <input type="number" placeholder="number">
+                </div>
+                <div class="inputBox">
+                    <input type="number" placeholder="telephone">
+                    <input type="text" placeholder="address">
+                </div>
+                <textarea placeholder="remark" name="" id="" cols="30" rows="10"></textarea>
+                <a href="#"><input type="submit" id="div1" class="btn" value="order now"></a>
+                <script text="text/javascript">
+                    document.getElementById("div1").onclick = function () {
+                        alert("Successfully ordered! We'll deal with it in 24 hours.");
+                    }
+                </script>
+            </form>
+        </div>
+    </section>
+    <!-- order section ends -->
+
+
+    <!-- steps section starts  -->
+    <div class="step-container">
+        <h1 class="heading">how it <span>works</span></h1>
+        <section class="steps">
+            <div class="box">
+                <img src="images/step-1.jpg" style="height: 180px; width: 180px;" alt="">
+                <h3>choose product you like</h3>
+            </div>
+            <div class="box">
+                <img src="images/step-2.jpg" style="height: 180px; width: 180px;" alt="">
+                <h3>free and fast delivery</h3>
+            </div>
+            <div class="box">
+                <img src="images/step-3.jpg" style="height: 180px; width: 180px;" alt="">
+                <h3>easy payments methods</h3>
+            </div>
+            <div class="box">
+                <img src="images/step-4.jpg" style="height: 180px; width: 180px;" alt="">
+                <h3>enjoy its accompany</h3>
+            </div>
+
+        </section>
+    </div>
+    <!-- steps section ends -->
+
+    <!-- cooperation section starts  -->
+
+
+    <section class="cooperation" id="cooperation">
+        <section class="business" id="business">
+            <h1 class="heading"> <span> cooperation </span> with us </h1>
+            <div class="row">
+                <div class="image">
+                    <img src="images/business.jpg" alt="">
+                </div>
+                <form action="">
+                    <div class="inputBox">
+                        <input type="text" placeholder="name">
+                        <input type="text" placeholder="address">
+                    </div>
+                    <div class="inputBox">
+                        <select>
+                            <option style="color: #333;">--ID--</option>
+                            <option>individual</option>
+                            <option>group</option>
+                            <option>private enterprise</option>
+                            <option>state-owned enterprise</option>
+                        </select>
+                        <select>
+                            <option style="color: #333;">--cooperation model--</option>
+                            <option>investment</option>
+                            <option>join in</option>
+                            <option>purchase of shares</option>
+                            <option>acquisition</option>
+                            <option>apply for a patent</option>
+                        </select>
+
+                    </div>
+                    <div class="inputBox">
+                        <input type="number" placeholder="telephone">
+                        <input type="text" placeholder="e-mail">
+                    </div>
+                    <textarea placeholder="note" name="" id="" cols="30" rows="10"></textarea>
+
+                    <a href="#"><input type="submit" id="div2" class="btn" value="submit"></a>
+                    <script text="text/javascript">
+                        document.getElementById("div2").onclick = function () {
+                            alert("Submit successfully! We'll contact you in 24 hours.");
+                        }
+                    </script>
+                </form>
+            </div>
+        </section>
+        <h1 class="heading"> <span> what </span> we have </h1>
+        <div class="box-container">
+            <div class="box">
+                <img src="images/g-1.jpg" alt="">
+                <div class="content">
+                    <h3>status detection</h3>
+                    <p>Be able to display the real-time status of your home.</p>
+                    <a href="#" class="btn">learn more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/g-2.jpg" alt="">
+                <div class="content">
+                    <h3>remote control</h3>
+                    <p>Remote control of the working state of the smart furniture.</p>
+                    <a href="#" class="btn">learn more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/g-3.jpg" alt="">
+                <div class="content">
+                    <h3>safety garantee</h3>
+                    <p>Intelligent door lock, smoke alarm, infrared detector to provide protection for your safety.</p>
+                    <a href="#" class="btn">learn more</a>
+                </div>
+            </div>
+        </div>
+        <h1 class="heading"><br> <span> why </span> choose us </h1>
+        <div class="box-container">
+            <div class="box">
+                <img src="images/g-4.jpg" alt="">
+                <div class="content">
+                    <h3>multiple interactions</h3>
+                    <p>Voice, touch screen, gesture and other interactive ways to ensure user friendly.</p>
+                    <a href="#" class="btn">learn more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/g-5.jpg" alt="">
+                <div class="content">
+                    <h3>active intelligence</h3>
+                    <p>Take the initiative to feedback information and ask for demand, intelligent and warm coexist.</p>
+                    <a href="#" class="btn">learn more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/g-6.jpg" alt="">
+                <div class="content">
+                    <h3>customization</h3>
+                    <p>Customize various modes according to their preferences, which is convenient for later use.</p>
+                    <a href="#" class="btn">learn more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/g-7.jpg" alt="">
+                <div class="content">
+                    <h3>lifelong OTA</h3>
+                    <p>Lifelong OTA to ensure remote management and mobility.</p>
+                    <a href="#" class="btn">learn more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/g-8.jpg" alt="">
+                <div class="content">
+                    <h3>after-sale</h3>
+                    <p>High quality after-sales service within 24 hours.</p>
+                    <a href="#" class="btn">learn more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/g-9.jpg" alt="">
+                <div class="content">
+                    <h3>customer welfare</h3>
+                    <p>Regular welfare to old customers to thank you for your trust.</p>
+                    <a href="#" class="btn">learn more</a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- cooperation section ends -->
+
+
+    <!-- about section starts  -->
+    <section class="about" id="about">
+        <h1 class="heading"> <span> about</span> us </h1>
+        <div class="box-container">
+            <div class="box">
+                <img src="images/pic1.jpg" alt="">
+                <h3>TEM</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p>Responsible for the construction of hardware facilities in this project</p>
+            </div>
+            <div class="box">
+                <img src="images/pic2.jpg" alt="">
+                <h3>IoT</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p>Responsible for creating the database in this project.</p>
+            </div>
+            <div class="box">
+                <img src="images/pic3.jpg" alt="">
+                <h3>E-Commerce</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p>Responsible for the preparation of web pages in this project.</p>
+            </div>
+        </div>
+    </section>
+    <!-- about section ends -->
+
+
+    <!-- rate section starts -->
+    <section class="rate" id="rate">
+        <h1 class="heading"> <span> rate</span> us </h1>
+        <div class="rate_container">
+            <button onclick="toggle()" id="button" class="rate_btn">popup</button>
+        </div>
+        <div class="popup-container">
+            <div class="popup">
+                <h3>how do you like our services</h3>
+                <input type="radio" name="buttons" id="btn1">
+                <input type="radio" name="buttons" id="btn2">
+                <input type="radio" name="buttons" id="btn3">
+                <input type="radio" name="buttons" id="btn4">
+                <input type="radio" name="buttons" id="btn5">
+                <div class="icons">
+                    <label for="btn1">🙁</label>
+                    <label for="btn2">😐</label>
+                    <label for="btn3">😊</label>
+                    <label for="btn4">😀</label>
+                    <label for="btn5">😍</label>
+                </div>
+                <script>
+                    function toggle(){
+                     
+                     let toggle = document.querySelector('.popup-container')
+                     toggle.classList.toggle('toggle');
+                    }
+                    </script>
+                    
+                <a href="javascript:void(0)" onclick="document.getElementById('light3').style.display='block';
+                document.getElementById('fade').style.display='block'">
+
+                    <a href="#"><input type="submit" id="div3" class="rate_btn" value="submit"></a>
+                    <script text="text/javascript">
+                        document.getElementById("div3").onclick = function () {
+                            alert("Successfully submitted! We'll contact you in 24 hours.");
+                        }
+                    </script>
+            </div>
+            <div onclick="toggle()" id="close">✖</div>
+        </div>
+        </div>
+    </section>
+    <!-- rate section ends -->
+
+
+    <!-- footer section  -->
+    <section class="-footer">
+        <div class="share">
+            <a href="#" class="btn">QQ</a>
+            <a href="#" class="btn">wechat</a>
+            <a href="#" class="btn">instagram</a>
+            <a href="#" class="btn">facebook</a>
+            <a href="#" class="btn">microblog</a>
+        </div>
+        <h1 class="credit"> created by <span> miss.DUI web designer </span> | all rights reserved! </h1>
+    </section>
+
+    <div class="footer">
+        <div class="w">
+            <div class="copyright">
+                <img src="images/logo.jpg" height="40" class="logo" alt="logo" />
+                <p>Smart Home System spares no efforts to provide you the best.<br>
+                    © 2021/7/7.BUPT. GROUP 58</p>
+                <a href="#" class="app" style="font-size: 22px;"> DOWNLOAD</a>
+            </div>
+            <div class="links">
+                <dl>
+                    <dt>About us </dt>
+                    <dd><a href="#">organization</a></dd>
+                    <dd><a href="#">help</a></dd>
+                    <dd><a href="#">service</a></dd>
+                    <dd><a href="#">working with us</a></dd>
+                </dl>
+                <dl>
+                    <dt>User menu </dt>
+                    <dd><a href="#">remote control</a></dd>
+                    <dd><a href="#">install</a></dd>
+                    <dd><a href="#">monitor</a></dd>
+                    <dd><a href="#">advice</a></dd>
+                </dl>
+                <dl>
+                    <dt>Cooperantion </dt>
+                    <dd><a href="#">contact us</a></dd>
+                    <dd><a href="#">institution</a></dd>
+                    <dd><a href="#">personal</a></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <!-- scroll top button  -->
+    <a href="#home" class="fas fa-angle-up" id="scroll-top"></a>
+    <!-- loader  -->
+    <div class="loader-container">
+        <img src="images/loader.gif" alt="">
+    </div>
+    <!-- custom js file link  -->
+    <script src="script.js"></script>
+    <script>let menu = document.querySelector('#menu-bar');
+        let navbar = document.querySelector('.navbar');
+        menu.onclick = () => {
+            menu.classList.toggle('fa-times');
+            navbar.classList.toggle('active');
+        }
+        window.onscroll = () => {
+            menu.classList.remove('fa-times');
+            navbar.classList.remove('active');
+            if (window.scrollY > 60) {
+                document.querySelector('#scroll-top').classList.add('active');
+            } else {
+                document.querySelector('#scroll-top').classList.remove('active');
+            }
+        }
+        function loader() {
+            document.querySelector('.loader-container').classList.add('fade-out');
+        }
+        function fadeOut() {
+            setInterval(loader, 3000);
+        }
+        window.onload = fadeOut();</script>
+
+
+</body>
+
+</html>
